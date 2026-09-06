@@ -23,9 +23,4 @@ footer{margin-top:50px;color:#444;font-size:11px}
 <script>
 fetch('https://api.github.com/repos/declanoldale7-spec/dola-declan-archive/contents').then(r=>r.json()).then(a=>{
 let h='';a.forEach(f=>{if(f.name!='index.html'){h+=`<div class="card"><a href="${f.html_url}" target="_blank">📁 ${f.name}</a><div style="color:#666;font-size:11px;margin-top:6px">Permanent • IPFS Backed</div></div>`;}});
-document.getElementById('files').innerHTML=h||'<div style="color:#666">Archive empty - ready for uploads</div>';
-});
-</script>
-<footer>dola-declan-archive.vercel.app<br>© 2026 DOLA - Never Deleted. Never Forgotten.</footer>
-</body>
-</html>t></body></html>
+document.getElementById('files').innerHTML=h||'<div style="color:#666">Archive empty - ready fhtml>
