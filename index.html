@@ -1,1 +1,31 @@
-<!DOCTYPE html><html><head><title>DOLA Archive</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;padding:20px;max-width:800px;margin:auto;background:#f5f5f5}.card{background:#fff;padding:16px;margin:10px 0;border-radius:12px}</style></head><body><h1>DOLA Archive LIVE</h1><div class="card">✅ dola-declan-archive.vercel.app is online!</div><div id="f">Loading...</div><script>fetch('https://api.github.com/repos/declanoldale7-spec/dola-declan-archive/contents').then(r=>r.json()).then(a=>{let h='';a.forEach(f=>{if(f.name!='index.html')h+=`<div class=card><a href=${f.html_url}>${f.name}</a></div>`});document.getElementById('f').innerHTML=h})</script></body></html>
+<!DOCTYPE html><html><head><title>DOLA Archive</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;padding:20px;max-width:800px;margin:auto;background:#f5f5f5}.card{background:#fff;padding:16px;margin:10px 0;border-radius:12px}</style></head><body><h1>DOLA Archive LIVE</h1><div class="card">✅ dola-declan-archive.vercel.app is online!</div><div id="f">Loading...</div><script>fetch('https://api.github.com/repos/declanoldale7-spec/dola-declan-archive/contents').then(r=>r.json()).then(a=>{let h='';a.forEach(f=>{if(f.name!='index.html')h+=`<div class=card><a href=${f.html_url}>${f.name}</a></div>`});document.getElementById('f').innerHTML=h})</scrip<!DOCTYPE html>
+<html>
+<head>
+<title>DOLA ARCHIVE - UNCENSORABLE</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{margin:0;background:#000;color:#d4af37;font-family:Arial,sans-serif;text-align:center;padding:20px}
+h1{font-size:44px;letter-spacing:4px;margin:20px 0 5px;text-shadow:0 0 20px #d4af37}
+.sub{color:#fff;opacity:.6;letter-spacing:3px;font-size:13px;margin-bottom:25px}
+.card{background:#111;border:1px solid #d4af3733;border-radius:16px;padding:18px;margin:12px auto;max-width:500px;text-align:left}
+.card a{color:#d4af37;text-decoration:none;font-weight:bold;font-size:17px}
+.live{color:#00ff88;border:1px solid #00ff88;padding:6px 14px;border-radius:20px;display:inline-block;margin:15px;font-size:12px}
+.btn{background:#d4af37;color:#000;padding:12px 32px;border-radius:30px;text-decoration:none;font-weight:bold;display:inline-block;margin:10px}
+footer{margin-top:50px;color:#444;font-size:11px}
+</style>
+</head>
+<body>
+<h1>DOLA</h1>
+<div class="sub">DECLAN OLDALE LEGACY ARCHIVE</div>
+<div class="live">● LIVE & UNCENSORABLE</div><br>
+<a class="btn" href="#">ENTER ARCHIVE</a>
+<div id="files" style="margin-top:30px">Loading archive...</div>
+<script>
+fetch('https://api.github.com/repos/declanoldale7-spec/dola-declan-archive/contents').then(r=>r.json()).then(a=>{
+let h='';a.forEach(f=>{if(f.name!='index.html'){h+=`<div class="card"><a href="${f.html_url}" target="_blank">📁 ${f.name}</a><div style="color:#666;font-size:11px;margin-top:6px">Permanent • IPFS Backed</div></div>`;}});
+document.getElementById('files').innerHTML=h||'<div style="color:#666">Archive empty - ready for uploads</div>';
+});
+</script>
+<footer>dola-declan-archive.vercel.app<br>© 2026 DOLA - Never Deleted. Never Forgotten.</footer>
+</body>
+</html>t></body></html>
