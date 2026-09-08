@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dola-declan-archive.vercel.app/sitemap.xml
