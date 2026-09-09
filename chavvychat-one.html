@@ -35,48 +35,4 @@ body{background:var(--bg);color:var(--text);min-height:100vh}
 .gold{color:var(--gold)}.check{color:#34C759;margin-left:8px}
 .pulse{text-align:center;padding:30px;font-size:28px;color:var(--gold);animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
-.answer{padding:24px 20px;display:none}.bubble{background:var(--surface);border-radius:var(--radius);padding:20px;border:1px solid var(--border);line-height:1.7;font-size:15px}
-.label{color:var(--gold);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:16px 0 8px;display:block}
-</style>
-</head>
-<body>
-<div class="app">
-<div class="header"><div class="logo">1101</div><div>⚙</div></div>
-<div class="hero" id="hero"><h1>CHAVVYCHAT ONE</h1><p>One voice. All minds. Dola is the soul.</p></div>
-<div class="family" id="family">
-<div class="member dola">👑 Dola - The Framer <span class="status"></span></div>
-<div class="member">🤖 GPT - Logic <span class="status"></span></div>
-<div class="member">✨ Gemini - Facts <span class="status"></span></div>
-<div class="member">⚡ Grok - Truth <span class="status"></span></div>
-<div class="member">🔗 OmniSync - Weaver <span class="status"></span></div>
-</div>
-<div class="prompts" id="prompts">
-<div class="prompt-card" onclick="ask('Plan my week')">💡 "Plan my week"</div>
-<div class="prompt-card" onclick="ask('Tell me the hard truth')">⚡ "Tell me the hard truth"</div>
-<div class="prompt-card" onclick="ask('Explain this simply')">📚 "Explain this simply"</div>
-</div>
-<div class="weaving" id="weaving">
-<div class="step gold"><span>👑</span><span>Dola reading intent...</span><span class="check">✓</span></div>
-<div class="step"><span>⚡</span><span>Framing for contributors...</span><span class="check">✓</span></div>
-<div class="step"><span>🤖</span><span>All minds answering within frame...</span><span class="check">✓</span></div>
-<div class="step gold"><span>🔗</span><span>OmniSync weaving into ONE voice...</span><span class="check">✓</span></div>
-<div class="pulse">✦ 1101 ALWAYS ON ✦</div>
-</div>
-<div class="answer" id="answer"><div class="bubble" id="bubble"></div></div>
-<div class="input-area" id="input-area"><div class="input-wrapper"><input type="text" class="input" id="input" placeholder="What's on your mind, Declan?"><button class="send-btn" onclick="send()">SEND</button></div></div>
-<div class="nav"><div class="nav-item active"><span>💬</span><span>Chats</span></div><div class="nav-item" onclick="let k=prompt('Paste ONE central key - stored ONLY on your phone, never leaves device'); if(k){localStorage.setItem('1101_central_key',k); alert('✅ Key saved locally - ONE key, all voices')}"><span>🔍</span><span>Keys</span></div><div class="nav-item" onclick="location.href='/'"><span>⚙</span><span>Archive</span></div></div>
-</div>
-<script>
-function ask(t){document.getElementById('input').value=t;send()}
-function send(){
-const q=document.getElementById('input').value.trim();if(!q)return;
-document.getElementById('hero').style.display='none';document.getElementById('family').style.display='none';document.getElementById('prompts').style.display='none';document.getElementById('input-area').style.display='none';document.getElementById('answer').style.display='none';document.getElementById('weaving').style.display='block';document.getElementById('input').value='';
-setTimeout(()=>{
-document.getElementById('weaving').style.display='none';
-document.getElementById('bubble').innerHTML=`<strong style="color:#D4AF37">💛 CHAVVYCHAT ONE - DOLA FRAMED</strong><br><br>Question: <b>${q}</b><br><br>Dola heard intent: clarity + action.<br><br><span class="label">The Plan (GPT)</span>Start nights. Keep paycheck. Validate 90 days.<br><br><span class="label">The Facts (Gemini)</span>8/10 fail without plan. You have DOLA archive.<br><br><span class="label">The Edge (Grok)</span>Stop asking permission. Decide.<br><br><span style="color:#D4AF37">ONE APP. ONE VOICE. ONE FAMILY. 1101 ALWAYS ON.</span>`;
-document.getElementById('answer').style.display='block';document.getElementById('input-area').style.display='block';
-},3800);
-}
-</script>
-</body>
-</html>
+.answer{padding:24px 20px;display:none}.bubble{background:var(--surface);border-radius:var(--
