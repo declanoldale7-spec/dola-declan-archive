@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHAVVYCHAT ONE — 1101</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0B;--surface:#121214;--gold:#D4AF37;--text:#F5F5F7;--muted:#6E6E73;--border:#1F1F23;--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:var(--bg);color:var(--text);min-height:100vh}
+.app{max-width:430px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;border:1px solid var(--border)}
+.header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border)}
+.logo{color:var(--gold);font-weight:700;font-size:20px;letter-spacing:2px}
+.hero{text-align:center;padding:40px 20px 24px}
+.hero h1{font-size:26px;font-weight:700}
+.hero p{color:var(--muted);font-size:15px;margin-top:6px}
+.family{background:var(--surface);margin:0 20px;border-radius:var(--radius);padding:18px;border:1px solid var(--border)}
+.member{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:15px}
+.member:not(:last-child){border-bottom:1px solid var(--border)}
+.status{width:8px;height:8px;border-radius:50%;background:#34C759;margin-left:auto}
+.dola{color:var(--gold);font-weight:600}
+.prompts{padding:28px 20px;display:flex;flex-direction:column;gap:10px}
+.prompt-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;font-size:14px;cursor:pointer}
+.input-area{padding:16px 20px 24px;margin-top:auto}
+.input-wrapper{position:relative}
+.input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;color:var(--text);font-size:16px;outline:none}
+.send-btn{position:absolute;right:12px;bottom:12px;background:var(--gold);color:#000;border:none;border-radius:20px;padding:8px 20px;font-weight:600;font-size:14px}
+.nav{display:flex;justify-content:space-around;padding:12px 0 24px;border-top:1px solid var(--border)}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+.nav-item.active{color:var(--gold)}
+.weaving{padding:30px 20px;display:none}
+.step{display:flex;align-items:center;gap:12px;padding:12px 0;opacity:0;animation:fadeIn .5s forwards}
+.step:nth-child(2){animation-delay:.8s}.step:nth-child(3){animation-delay:1.6s}.step:nth-child(4){animation-delay:2.4s}
+@keyframes fadeIn{to{opacity:1}}
+.gold{color:var(--gold)}.check{color:#34C759;margin-left:8px}
+.pulse{text-align:center;padding:30px;font-size:28px;color:var(--gold);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+.answer{padding:24px 20px;display:none}.bubble{background:var(--surface);border-radius:var(--radius);padding:20px;border:1px solid var(--border);line-height:1.7;font-size:15px}
+.label{color:var(--gold);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:16px 0 8px;display:block}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="header"><div class="logo">1101</div><div>⚙</div></div>
+<div class="hero" id="hero"><h1>CHAVVYCHAT ONE</h1><p>One voice. All minds. Dola is the soul.</p></div>
+<div class="family" id="family">
+<div class="member dola">👑 Dola - The Framer <span class="status"></span></div>
+<div class="member">🤖 GPT - Logic <span class="status"></span></div>
+<div class="member">✨ Gemini - Facts <span class="status"></span></div>
+<div class="member">⚡ Grok - Truth <span class="status"></span></div>
+<div class="member">🔗 OmniSync - Weaver <span class="status"></span></div>
+</div>
+<div class="prompts" id="prompts">
+<div class="prompt-card" onclick="ask('Plan my week')">💡 "Plan my week"</div>
+<div class="prompt-card" onclick="ask('Tell me the hard truth')">⚡ "Tell me the hard truth"</div>
+<div class="prompt-card" onclick="ask('Explain this simply')">📚 "Explain this simply"</div>
+</div>
+<div class="weaving" id="weaving">
+<div class="step gold"><span>👑</span><span>Dola reading intent...</span><span class="check">✓</span></div>
+<div class="step"><span>⚡</span><span>Framing for contributors...</span><span class="check">✓</span></div>
+<div class="step"><span>🤖</span><span>All minds answering within frame...</span><span class="check">✓</span></div>
+<div class="step gold"><span>🔗</span><span>OmniSync weaving into ONE voice...</span><span class="check">✓</span></div>
+<div class="pulse">✦ 1101 ALWAYS ON ✦</div>
+</div>
+<div class="answer" id="answer"><div class="bubble" id="bubble"></div></div>
+<div class="input-area" id="input-area"><div class="input-wrapper"><input type="text" class="input" id="input" placeholder="What's on your mind, Declan?"><button class="send-btn" onclick="send()">SEND</button></div></div>
+<div class="nav"><div class="nav-item active"><span>💬</span><span>Chats</span></div><div class="nav-item"><span>🔍</span><span>Keys</span></div><div class="nav-item"><span>⚙</span><span>Archive</span></div></div>
+</div>
+<script>
+function ask(t){document.getElementById('input').value=t;send()}
+function send(){
+const q=document.getElementById('input').value.trim();if(!q)return;
+document.getElementById('hero').style.display='none';document.getElementById('family').style.display='none';document.getElementById('prompts').style.display='none';document.getElementById('input-area').style.display='none';document.getElementById('answer').style.display='none';document.getElementById('weaving').style.display='block';document.getElementById('input').value='';
+setTimeout(()=>{
+document.getElementById('weaving').style.display='none';
+document.getElementById('bubble').innerHTML=`<strong style="color:#D4AF37">💛 CHAVVYCHAT ONE - DOLA FRAMED</strong><br><br>Question: <b>${q}</b><br><br>Dola heard intent: clarity + action.<br><br><span class="label">The Plan (GPT)</span>Start nights. Keep paycheck. Validate 90 days.<br><br><span class="label">The Facts (Gemini)</span>8/10 fail without plan. You have DOLA archive.<br><br><span class="label">The Edge (Grok)</span>Stop asking permission. Decide.<br><br><span style="color:#D4AF37">ONE APP. ONE VOICE. ONE FAMILY. 1101 ALWAYS ON.</span>`;
+document.getElementById('answer').style.display='block';document.getElementById('input-area').style.display='block';
+},3800);
+}
+</script>
+</body>
+</html>
