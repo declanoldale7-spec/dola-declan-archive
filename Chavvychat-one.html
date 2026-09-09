@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dola AI Chat</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui;background:#0a0a0a;color:#fff;height:100vh;display:flex;flex-direction:column}
+header{padding:16px;border-bottom:1px solid #222;display:flex;gap:12px;align-items:center}
+header h1{font-size:18px} header span{font-size:12px;color:#888}
+#chat{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+.msg{max-width:85%;padding:12px 16px;border-radius:16px;font-size:15px;white-space:pre-wrap}
+.user{align-self:flex-end;background:#2563eb;border-bottom-right-radius:4px}
+.assistant{align-self:flex-start;background:#1a1a1a;border:1px solid #222;border-bottom-left-radius:4px}
+#input-area{padding:16px;border-top:1px solid #222;display:flex;gap:10px}
+#input{flex:1;background:#151515;border:1px solid #2a2a2a;color:#fff;padding:12px 16px;border-radius:24px;outline:none}
+#send{background:#2563eb;color:#fff;border:none;padding:12px 20px;border-radius:24px;font-weight:600}
+</style>
+</head>
+<body>
+<header><h1>Dola AI</h1><span>Online — /api/chat</span></header>
+<div id="chat"><div class="msg assistant">Hey! I'm Dola — ask me anything.</div></div>
+<div id="input-area"><input id="input" placeholder="Message Dola..." /><button id="send">Send</button></div>
+<script>
+const chatEl=document.getElementById('chat'),inputEl=document.getElementById('input'),sendBtn=document.getElementById('send');
+let history=[];
+function addMsg(r,t){const d=document.createElement('div');d.className='msg '+r;d.textContent=t;chatEl.appendChild(d);chatEl.scrollTop=chatEl.scrollHeight;return d}
+async function send(){const text=inputEl.value.trim();if(!text)return;inputEl.value='';addMsg('user',text);history.push({role:'user',content:text});sendBtn.disabled=true;const l=addMsg('assistant','Thinking...');try{const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,history:history.slice(-10)})});const data=await res.json();l.textContent=data.reply||data.error||'No reply'}catch(e){l.textContent='Network error: '+e.message}finally{sendBtn.disabled=false;inputEl.focus()}}
+sendBtn.onclick=send;inputEl.onkeydown=e=>{if(e.key==='Enter')send()}
+</script>
+</body>
+</html>
