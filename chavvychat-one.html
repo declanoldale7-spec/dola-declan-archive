@@ -26,7 +26,7 @@ body{background:var(--bg);color:var(--text);min-height:100vh}
 .input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;color:var(--text);font-size:16px;outline:none}
 .send-btn{position:absolute;right:12px;bottom:12px;background:var(--gold);color:#000;border:none;border-radius:20px;padding:8px 20px;font-weight:600;font-size:14px}
 .nav{display:flex;justify-content:space-around;padding:12px 0 24px;border-top:1px solid var(--border)}
-.nav-item{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--muted);cursor:pointer}
 .nav-item.active{color:var(--gold)}
 .weaving{padding:30px 20px;display:none}
 .step{display:flex;align-items:center;gap:12px;padding:12px 0;opacity:0;animation:fadeIn .5s forwards}
@@ -64,7 +64,7 @@ body{background:var(--bg);color:var(--text);min-height:100vh}
 </div>
 <div class="answer" id="answer"><div class="bubble" id="bubble"></div></div>
 <div class="input-area" id="input-area"><div class="input-wrapper"><input type="text" class="input" id="input" placeholder="What's on your mind, Declan?"><button class="send-btn" onclick="send()">SEND</button></div></div>
-<div class="nav"><div class="nav-item active"><span>💬</span><span>Chats</span></div><div class="nav-item"><span>🔍</span><span>Keys</span></div><div class="nav-item"><span>⚙</span><span>Archive</span></div></div>
+<div class="nav"><div class="nav-item active"><span>💬</span><span>Chats</span></div><div class="nav-item" onclick="let k=prompt('Paste ONE central key - stored ONLY on your phone, never leaves device'); if(k){localStorage.setItem('1101_central_key',k); alert('✅ Key saved locally - ONE key, all voices')}"><span>🔍</span><span>Keys</span></div><div class="nav-item" onclick="location.href='/'"><span>⚙</span><span>Archive</span></div></div>
 </div>
 <script>
 function ask(t){document.getElementById('input').value=t;send()}
@@ -79,4 +79,4 @@ document.getElementById('answer').style.display='block';document.getElementById(
 }
 </script>
 </body>
-</html> 
+</html>
